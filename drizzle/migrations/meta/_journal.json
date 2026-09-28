@@ -15,6 +15,13 @@
       "when": 1790630283392,
       "tag": "0001_create_workspace_profiles",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1790631204060,
+      "tag": "0002_customer_inquiries",
+      "breakpoints": true
     }
   ]
 }

@@ -12,3 +12,4 @@
 - Keep the migrated Mackdish marketing pages and CRM routes in TanStack Start; the source archive already uses this routing model, so preserving its paths avoids broken links.
 - Use the generated Lovable Cloud client for CRM authentication and reads/writes, never the archived project URL; this keeps all customer data in the new project.
 - Restrict CRM rows with membership-based database policies, and grant membership only after a verified identity import; public signup alone must never expose customer records. The original dashboard is admin-only, so keep that route admin-only.
+- Store workspace display information in `public.profiles` separately from admin roles in `public.crm_members`; this prevents editable profile fields from granting access.

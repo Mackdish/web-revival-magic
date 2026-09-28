@@ -10,33 +10,309 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as AdvertisingRouteImport } from './routes/advertising'
+import { Route as AutomationAiRouteImport } from './routes/automation-ai'
+import { Route as BlogManagementRouteImport } from './routes/blog-management'
+import { Route as CaseStudiesRouteImport } from './routes/case-studies'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as DigitalAuditRouteImport } from './routes/digital-audit'
+import { Route as DigitalMarketingRouteImport } from './routes/digital-marketing'
+import { Route as InsightsRouteImport } from './routes/insights'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as PricingRouteImport } from './routes/pricing'
+import { Route as SeoRouteImport } from './routes/seo'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SignupRouteImport } from './routes/signup'
+import { Route as SoftwareDevelopmentRouteImport } from './routes/software-development'
+import { Route as SolutionsRouteImport } from './routes/solutions'
+import { Route as TrademallAdsRouteImport } from './routes/trademall-ads'
+import { Route as WebDevelopmentRouteImport } from './routes/web-development'
+import { Route as WebSoftwareDevelopmentRouteImport } from './routes/web-software-development'
+import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdvertisingRoute = AdvertisingRouteImport.update({
+  id: '/advertising',
+  path: '/advertising',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AutomationAiRoute = AutomationAiRouteImport.update({
+  id: '/automation-ai',
+  path: '/automation-ai',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const BlogManagementRoute = BlogManagementRouteImport.update({
+  id: '/blog-management',
+  path: '/blog-management',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesRoute = CaseStudiesRouteImport.update({
+  id: '/case-studies',
+  path: '/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DigitalAuditRoute = DigitalAuditRouteImport.update({
+  id: '/digital-audit',
+  path: '/digital-audit',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DigitalMarketingRoute = DigitalMarketingRouteImport.update({
+  id: '/digital-marketing',
+  path: '/digital-marketing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsRoute = InsightsRouteImport.update({
+  id: '/insights',
+  path: '/insights',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PricingRoute = PricingRouteImport.update({
+  id: '/pricing',
+  path: '/pricing',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SeoRoute = SeoRouteImport.update({
+  id: '/seo',
+  path: '/seo',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SignupRoute = SignupRouteImport.update({
+  id: '/signup',
+  path: '/signup',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SoftwareDevelopmentRoute = SoftwareDevelopmentRouteImport.update({
+  id: '/software-development',
+  path: '/software-development',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SolutionsRoute = SolutionsRouteImport.update({
+  id: '/solutions',
+  path: '/solutions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TrademallAdsRoute = TrademallAdsRouteImport.update({
+  id: '/trademall-ads',
+  path: '/trademall-ads',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WebDevelopmentRoute = WebDevelopmentRouteImport.update({
+  id: '/web-development',
+  path: '/web-development',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const WebSoftwareDevelopmentRoute = WebSoftwareDevelopmentRouteImport.update({
+  id: '/web-software-development',
+  path: '/web-software-development',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const InsightsSlugRoute = InsightsSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => InsightsRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/advertising': typeof AdvertisingRoute
+  '/automation-ai': typeof AutomationAiRoute
+  '/blog-management': typeof BlogManagementRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
+  '/digital-audit': typeof DigitalAuditRoute
+  '/digital-marketing': typeof DigitalMarketingRoute
+  '/insights': typeof InsightsRouteWithChildren
+  '/login': typeof LoginRoute
+  '/pricing': typeof PricingRoute
+  '/seo': typeof SeoRoute
+  '/services': typeof ServicesRoute
+  '/signup': typeof SignupRoute
+  '/software-development': typeof SoftwareDevelopmentRoute
+  '/solutions': typeof SolutionsRoute
+  '/trademall-ads': typeof TrademallAdsRoute
+  '/web-development': typeof WebDevelopmentRoute
+  '/web-software-development': typeof WebSoftwareDevelopmentRoute
+  '/insights/$slug': typeof InsightsSlugRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/advertising': typeof AdvertisingRoute
+  '/automation-ai': typeof AutomationAiRoute
+  '/blog-management': typeof BlogManagementRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
+  '/digital-audit': typeof DigitalAuditRoute
+  '/digital-marketing': typeof DigitalMarketingRoute
+  '/insights': typeof InsightsRouteWithChildren
+  '/login': typeof LoginRoute
+  '/pricing': typeof PricingRoute
+  '/seo': typeof SeoRoute
+  '/services': typeof ServicesRoute
+  '/signup': typeof SignupRoute
+  '/software-development': typeof SoftwareDevelopmentRoute
+  '/solutions': typeof SolutionsRoute
+  '/trademall-ads': typeof TrademallAdsRoute
+  '/web-development': typeof WebDevelopmentRoute
+  '/web-software-development': typeof WebSoftwareDevelopmentRoute
+  '/insights/$slug': typeof InsightsSlugRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/advertising': typeof AdvertisingRoute
+  '/automation-ai': typeof AutomationAiRoute
+  '/blog-management': typeof BlogManagementRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
+  '/dashboard': typeof DashboardRoute
+  '/digital-audit': typeof DigitalAuditRoute
+  '/digital-marketing': typeof DigitalMarketingRoute
+  '/insights': typeof InsightsRouteWithChildren
+  '/login': typeof LoginRoute
+  '/pricing': typeof PricingRoute
+  '/seo': typeof SeoRoute
+  '/services': typeof ServicesRoute
+  '/signup': typeof SignupRoute
+  '/software-development': typeof SoftwareDevelopmentRoute
+  '/solutions': typeof SolutionsRoute
+  '/trademall-ads': typeof TrademallAdsRoute
+  '/web-development': typeof WebDevelopmentRoute
+  '/web-software-development': typeof WebSoftwareDevelopmentRoute
+  '/insights/$slug': typeof InsightsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/advertising'
+    | '/automation-ai'
+    | '/blog-management'
+    | '/case-studies'
+    | '/contact'
+    | '/dashboard'
+    | '/digital-audit'
+    | '/digital-marketing'
+    | '/insights'
+    | '/login'
+    | '/pricing'
+    | '/seo'
+    | '/services'
+    | '/signup'
+    | '/software-development'
+    | '/solutions'
+    | '/trademall-ads'
+    | '/web-development'
+    | '/web-software-development'
+    | '/insights/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/advertising'
+    | '/automation-ai'
+    | '/blog-management'
+    | '/case-studies'
+    | '/contact'
+    | '/dashboard'
+    | '/digital-audit'
+    | '/digital-marketing'
+    | '/insights'
+    | '/login'
+    | '/pricing'
+    | '/seo'
+    | '/services'
+    | '/signup'
+    | '/software-development'
+    | '/solutions'
+    | '/trademall-ads'
+    | '/web-development'
+    | '/web-software-development'
+    | '/insights/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/advertising'
+    | '/automation-ai'
+    | '/blog-management'
+    | '/case-studies'
+    | '/contact'
+    | '/dashboard'
+    | '/digital-audit'
+    | '/digital-marketing'
+    | '/insights'
+    | '/login'
+    | '/pricing'
+    | '/seo'
+    | '/services'
+    | '/signup'
+    | '/software-development'
+    | '/solutions'
+    | '/trademall-ads'
+    | '/web-development'
+    | '/web-software-development'
+    | '/insights/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AdvertisingRoute: typeof AdvertisingRoute
+  AutomationAiRoute: typeof AutomationAiRoute
+  BlogManagementRoute: typeof BlogManagementRoute
+  CaseStudiesRoute: typeof CaseStudiesRoute
+  ContactRoute: typeof ContactRoute
+  DashboardRoute: typeof DashboardRoute
+  DigitalAuditRoute: typeof DigitalAuditRoute
+  DigitalMarketingRoute: typeof DigitalMarketingRoute
+  InsightsRoute: typeof InsightsRouteWithChildren
+  LoginRoute: typeof LoginRoute
+  PricingRoute: typeof PricingRoute
+  SeoRoute: typeof SeoRoute
+  ServicesRoute: typeof ServicesRoute
+  SignupRoute: typeof SignupRoute
+  SoftwareDevelopmentRoute: typeof SoftwareDevelopmentRoute
+  SolutionsRoute: typeof SolutionsRoute
+  TrademallAdsRoute: typeof TrademallAdsRoute
+  WebDevelopmentRoute: typeof WebDevelopmentRoute
+  WebSoftwareDevelopmentRoute: typeof WebSoftwareDevelopmentRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +324,190 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/advertising': {
+      id: '/advertising'
+      path: '/advertising'
+      fullPath: '/advertising'
+      preLoaderRoute: typeof AdvertisingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/automation-ai': {
+      id: '/automation-ai'
+      path: '/automation-ai'
+      fullPath: '/automation-ai'
+      preLoaderRoute: typeof AutomationAiRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/blog-management': {
+      id: '/blog-management'
+      path: '/blog-management'
+      fullPath: '/blog-management'
+      preLoaderRoute: typeof BlogManagementRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies': {
+      id: '/case-studies'
+      path: '/case-studies'
+      fullPath: '/case-studies'
+      preLoaderRoute: typeof CaseStudiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/digital-audit': {
+      id: '/digital-audit'
+      path: '/digital-audit'
+      fullPath: '/digital-audit'
+      preLoaderRoute: typeof DigitalAuditRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/digital-marketing': {
+      id: '/digital-marketing'
+      path: '/digital-marketing'
+      fullPath: '/digital-marketing'
+      preLoaderRoute: typeof DigitalMarketingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights': {
+      id: '/insights'
+      path: '/insights'
+      fullPath: '/insights'
+      preLoaderRoute: typeof InsightsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pricing': {
+      id: '/pricing'
+      path: '/pricing'
+      fullPath: '/pricing'
+      preLoaderRoute: typeof PricingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/seo': {
+      id: '/seo'
+      path: '/seo'
+      fullPath: '/seo'
+      preLoaderRoute: typeof SeoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/signup': {
+      id: '/signup'
+      path: '/signup'
+      fullPath: '/signup'
+      preLoaderRoute: typeof SignupRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/software-development': {
+      id: '/software-development'
+      path: '/software-development'
+      fullPath: '/software-development'
+      preLoaderRoute: typeof SoftwareDevelopmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/solutions': {
+      id: '/solutions'
+      path: '/solutions'
+      fullPath: '/solutions'
+      preLoaderRoute: typeof SolutionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/trademall-ads': {
+      id: '/trademall-ads'
+      path: '/trademall-ads'
+      fullPath: '/trademall-ads'
+      preLoaderRoute: typeof TrademallAdsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/web-development': {
+      id: '/web-development'
+      path: '/web-development'
+      fullPath: '/web-development'
+      preLoaderRoute: typeof WebDevelopmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/web-software-development': {
+      id: '/web-software-development'
+      path: '/web-software-development'
+      fullPath: '/web-software-development'
+      preLoaderRoute: typeof WebSoftwareDevelopmentRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/insights/$slug': {
+      id: '/insights/$slug'
+      path: '/$slug'
+      fullPath: '/insights/$slug'
+      preLoaderRoute: typeof InsightsSlugRouteImport
+      parentRoute: typeof InsightsRoute
+    }
   }
 }
 
+interface InsightsRouteChildren {
+  InsightsSlugRoute: typeof InsightsSlugRoute
+}
+
+const InsightsRouteChildren: InsightsRouteChildren = {
+  InsightsSlugRoute: InsightsSlugRoute,
+}
+
+const InsightsRouteWithChildren = InsightsRoute._addFileChildren(
+  InsightsRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AdvertisingRoute: AdvertisingRoute,
+  AutomationAiRoute: AutomationAiRoute,
+  BlogManagementRoute: BlogManagementRoute,
+  CaseStudiesRoute: CaseStudiesRoute,
+  ContactRoute: ContactRoute,
+  DashboardRoute: DashboardRoute,
+  DigitalAuditRoute: DigitalAuditRoute,
+  DigitalMarketingRoute: DigitalMarketingRoute,
+  InsightsRoute: InsightsRouteWithChildren,
+  LoginRoute: LoginRoute,
+  PricingRoute: PricingRoute,
+  SeoRoute: SeoRoute,
+  ServicesRoute: ServicesRoute,
+  SignupRoute: SignupRoute,
+  SoftwareDevelopmentRoute: SoftwareDevelopmentRoute,
+  SolutionsRoute: SolutionsRoute,
+  TrademallAdsRoute: TrademallAdsRoute,
+  WebDevelopmentRoute: WebDevelopmentRoute,
+  WebSoftwareDevelopmentRoute: WebSoftwareDevelopmentRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

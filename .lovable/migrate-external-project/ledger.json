@@ -1,0 +1,100 @@
+[
+  {
+    "capability": "code",
+    "source": "trade-mall-navigator-main.zip",
+    "outcome": "migrate",
+    "status": "implemented",
+    "next_action": "Verify in browser"
+  },
+  {
+    "capability": "schema",
+    "source": "trade-mall-navigator-main.zip",
+    "outcome": "migrate",
+    "status": "implemented",
+    "next_action": "None"
+  },
+  {
+    "capability": "records",
+    "source": "trade-mall-navigator-main.zip",
+    "outcome": "migrate",
+    "status": "pending",
+    "next_action": "Attach existing CRM table CSV or JSON exports"
+  },
+  {
+    "capability": "auth identities",
+    "source": "trade-mall-navigator-main.zip",
+    "outcome": "migrate",
+    "status": "pending",
+    "next_action": "Attach original user ID and email export for verified account linking"
+  },
+  {
+    "capability": "authorization",
+    "source": "trade-mall-navigator-main.zip",
+    "outcome": "migrate",
+    "status": "implemented",
+    "next_action": "Verify in browser"
+  },
+  {
+    "capability": "uploaded file bytes",
+    "source": "trade-mall-navigator-main.zip",
+    "outcome": "preserve or verify",
+    "status": "implemented",
+    "next_action": "None"
+  },
+  {
+    "capability": "external providers",
+    "source": "trade-mall-navigator-main.zip",
+    "outcome": "preserve or verify",
+    "status": "preserved",
+    "next_action": "WhatsApp links retained; no payment or messaging API found"
+  },
+  {
+    "capability": "public endpoints",
+    "source": "trade-mall-navigator-main.zip",
+    "outcome": "preserve or verify",
+    "status": "verified absent",
+    "next_action": "None"
+  },
+  {
+    "capability": "callbacks",
+    "source": "trade-mall-navigator-main.zip",
+    "outcome": "preserve or verify",
+    "status": "verified absent",
+    "next_action": "None"
+  },
+  {
+    "capability": "webhooks",
+    "source": "trade-mall-navigator-main.zip",
+    "outcome": "preserve or verify",
+    "status": "verified absent",
+    "next_action": "None"
+  },
+  {
+    "capability": "schedules",
+    "source": "trade-mall-navigator-main.zip",
+    "outcome": "preserve or verify",
+    "status": "verified absent",
+    "next_action": "None"
+  },
+  {
+    "capability": "secrets",
+    "source": "trade-mall-navigator-main.zip",
+    "outcome": "preserve or verify",
+    "status": "verified absent",
+    "next_action": "No external API keys needed for copied behavior"
+  },
+  {
+    "capability": "cutover",
+    "source": "trade-mall-navigator-main.zip",
+    "outcome": "preserve or verify",
+    "status": "pending",
+    "next_action": "Point existing domain only after publishing and verification"
+  },
+  {
+    "capability": "verification",
+    "source": "trade-mall-navigator-main.zip",
+    "outcome": "preserve or verify",
+    "status": "pending",
+    "next_action": "Verify signed-in CRM flow once original account identities or approved members are available"
+  }
+]

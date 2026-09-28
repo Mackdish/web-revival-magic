@@ -1,0 +1,8 @@
+import { ArrowDown, BarChart3, CircleDollarSign, Megaphone, MessageCircleMore, MousePointerClick, TrendingUp } from "lucide-react";
+
+const steps = [
+  { label: "Traffic", icon: MousePointerClick }, { label: "Marketing", icon: Megaphone },
+  { label: "Leads", icon: BarChart3 }, { label: "WhatsApp", icon: MessageCircleMore },
+  { label: "Sales", icon: CircleDollarSign }, { label: "Growth", icon: TrendingUp },
+];
+export function GrowthVisual() { return <div className="relative border border-hero-border bg-hero-panel p-5 shadow-2xl sm:p-7"><div className="mb-5 flex items-center justify-between border-b border-hero-border pb-4"><div><p className="text-xs font-semibold uppercase text-brand-light">Connected growth system</p><p className="mt-1 text-sm text-hero-muted">From attention to measurable opportunity</p></div><span className="flex items-center gap-2 text-xs text-hero-muted"><i className="size-2 rounded-full bg-brand-light motion-safe:animate-pulse" /> Live flow</span></div><div className="grid gap-2">{steps.map(({ label, icon: Icon }, index) => <div key={label}><div className="group flex items-center gap-4 border border-hero-border bg-hero-step px-4 py-3 transition-transform hover:translate-x-1"><span className="grid size-9 place-items-center rounded-md bg-brand-light/10 text-brand-light"><Icon className="size-4" /></span><span className="font-display text-sm font-semibold text-hero-foreground">{label}</span><span className="ml-auto font-mono text-[10px] text-hero-muted">0{index + 1}</span></div>{index < steps.length - 1 && <div className="flex h-3 items-center pl-8 text-brand-light"><ArrowDown className="size-3 motion-safe:animate-flow" /></div>}</div>)}</div></div>; }

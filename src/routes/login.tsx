@@ -2,8 +2,6 @@ import { FormEvent, useEffect, useState } from "react";
 import { Link, createFileRoute, useNavigate } from "@tanstack/react-router";
 import { ArrowRight, LockKeyhole, Mail, ShieldCheck } from "lucide-react";
 import { getCrmRole, getCurrentUser, signInWithPassword, supabase } from "../lib/auth";
-import { lovable } from "@/integrations/lovable/index";
-import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/login")({ head: () => ({ meta: [{ title: "Sign in | Mackdish Workspace" }, { name: "description", content: "Sign in to your private Mackdish business workspace." }, { property: "og:title", content: "Sign in | Mackdish Workspace" }, { property: "og:description", content: "Sign in to your private Mackdish business workspace." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }), component: LoginPage });
 
@@ -22,14 +20,8 @@ function LoginPage() {
   },[navigate]);
   const submit=async(e:FormEvent)=>{
     e.preventDefault();setError("");setSubmitting(true);
-    try { const {user}=await signInWithPassword(email.trim(),password); if(!user)throw new Error("Unable to sign in."); const role=await getCrmRole(user.id); if(!role){await supabase?.auth.signOut();throw new Error("Your account has not been granted workspace access yet.");} await navigate({to:"/dashboard",replace:true}); }
+    try { const {user}=await signInWithPassword(email.trim(),password); if(!user)throw new Error("Unable to sign in."); const role=await getCrmRole(user.id); if(role!=="admin"){await supabase?.auth.signOut();throw new Error("Your account has not been granted workspace access yet.");} await navigate({to:"/dashboard",replace:true}); }
     catch(e){setError(e instanceof Error?e.message:"Unable to sign in.");} finally{setSubmitting(false)}
-  };
-  const signInGoogle = async () => {
-    setError("");
-    const result = await lovable.auth.signInWithOAuth("google", { redirect_uri: window.location.origin + "/login" });
-    if (result.error) setError(result.error.message);
-    else if (!result.redirected) await navigate({ to: "/dashboard", replace: true });
   };
   if(loading)return <div className="flex min-h-screen items-center justify-center bg-slate-950 text-slate-300">Checking session...</div>;
   return <div className="min-h-screen bg-slate-950 text-slate-100"><div className="mx-auto grid min-h-screen max-w-6xl lg:grid-cols-2">
@@ -40,7 +32,6 @@ function LoginPage() {
         <label className="block"><span className="mb-2 block text-sm font-medium text-slate-300">Password</span><div className="flex items-center gap-3 rounded-xl border border-slate-700 bg-slate-950 px-3"><LockKeyhole className="size-4 text-slate-500"/><input required type="password" autoComplete="current-password" value={password} onChange={e=>setPassword(e.target.value)} placeholder="Your password" className="auth-input"/></div></label>
         {error&&<div className="rounded-xl border border-red-900/60 bg-red-950/30 p-3 text-sm text-red-300">{error}</div>}
         <button disabled={submitting} className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-white font-semibold text-slate-950 hover:bg-slate-200 disabled:opacity-60">{submitting?"Signing in...":"Sign in"}<ArrowRight className="size-4"/></button>
-        <Button type="button" variant="outline" onClick={signInGoogle} className="w-full border-slate-600 bg-slate-800 text-slate-100 hover:bg-slate-700 hover:text-slate-100">Continue with Google</Button>
         <p className="text-center text-sm text-slate-500">No account? <Link to="/signup" className="font-semibold text-white hover:underline">Create one</Link></p>
       </form><style>{".auth-input{height:3rem;width:100%;background:transparent;outline:none;font-size:.875rem;color:white}.auth-input::placeholder{color:#475569}"}</style>
     </div></div></div></div>;

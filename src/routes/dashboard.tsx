@@ -239,7 +239,7 @@ function AdminPage() {
         }
 
         const role = await getCrmRole(user.id);
-        if (!role) {
+        if (role !== "admin") {
           await signOut();
           await navigate({ to: "/login", replace: true });
           return;

@@ -2,8 +2,6 @@ import { FormEvent, useState } from "react";
 import { Link, createFileRoute, useNavigate } from "@tanstack/react-router";
 import { ArrowRight, CheckCircle2, LockKeyhole, Mail, ShieldCheck } from "lucide-react";
 import { signUpWithPassword } from "../lib/auth";
-import { lovable } from "@/integrations/lovable/index";
-import { Button } from "@/components/ui/button";
 
 export const Route = createFileRoute("/signup")({ head: () => ({ meta: [{ title: "Create account | Mackdish Workspace" }, { name: "description", content: "Create your Mackdish workspace account." }, { property: "og:title", content: "Create account | Mackdish Workspace" }, { property: "og:description", content: "Create your Mackdish workspace account." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }), component: SignupPage });
 
@@ -28,7 +26,6 @@ function SignupPage(){
    {error&&<div className="rounded-xl border border-red-900/60 bg-red-950/30 p-3 text-sm text-red-300">{error}</div>}
    {success&&<div className="flex gap-3 rounded-xl border border-emerald-900/60 bg-emerald-950/30 p-3 text-sm text-emerald-300"><CheckCircle2 className="mt-0.5 size-4 shrink-0"/><span>{success} <Link to="/login" className="font-semibold underline">Sign in</Link></span></div>}
    <button disabled={submitting} className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-white font-semibold text-slate-950 hover:bg-slate-200 disabled:opacity-60">{submitting?"Creating account...":"Create account"}<ArrowRight className="size-4"/></button>
-   <Button type="button" variant="outline" className="w-full border-slate-600 bg-slate-800 text-slate-100 hover:bg-slate-700 hover:text-slate-100" onClick={async () => { const result = await lovable.auth.signInWithOAuth("google", { redirect_uri: window.location.origin + "/login" }); if (result.error) setError(result.error.message); else if (!result.redirected) await navigate({to:"/dashboard",replace:true}); }}>Continue with Google</Button>
    <p className="text-center text-sm text-slate-500">Already have an account? <Link to="/login" className="font-semibold text-white hover:underline">Sign in</Link></p>
    <p className="text-center text-xs leading-5 text-slate-600">Creating an account does not grant CRM access. Workspace access is assigned separately.</p>
   </form><style>{".auth-input{height:3rem;width:100%;background:transparent;outline:none;font-size:.875rem;color:white}.auth-input::placeholder{color:#475569}"}</style>

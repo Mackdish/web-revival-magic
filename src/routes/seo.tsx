@@ -3,7 +3,7 @@ import { Search } from "lucide-react";
 import { CapabilityPage } from "@/components/marketing/content-page";
 
 export const Route = createFileRoute("/seo")({
-  head: () => ({ meta: [{ title: "SEO Services Kenya, Mackdish Solutions" }, { name: "description", content: "Local SEO, technical SEO and Google Business optimisation for Kenyan businesses." }, { property: "og:title", content: "SEO Services Kenya, Mackdish Solutions" }, { property: "og:description", content: "Local SEO, technical SEO and Google Business optimisation for Kenyan businesses." }, { property: "og:type", content: "website" }, { property: "og:url", content: "https://mackdish.store/seo" }], links: [{ rel: "canonical", href: "https://mackdish.store/seo" }] }),
+  head: () => ({ meta: [{ title: "SEO Services Kenya, Mackdish Solutions" }, { name: "description", content: "Local SEO, technical SEO and Google Business optimisation for Kenyan businesses." }, { property: "og:title", content: "SEO Services Kenya, Mackdish Solutions" }, { property: "og:description", content: "Local SEO, technical SEO and Google Business optimisation for Kenyan businesses." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }, { property: "og:url", content: "https://mackdish.store/seo" }], links: [{ rel: "canonical", href: "https://mackdish.store/seo" }] }),
   component: Page,
 });
 

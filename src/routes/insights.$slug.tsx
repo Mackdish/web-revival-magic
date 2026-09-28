@@ -14,7 +14,7 @@ export const Route = createFileRoute("/insights/$slug")({
     { name: "description", content: loaderData.article.excerpt },
     { property: "og:title", content: loaderData.article.title },
     { property: "og:description", content: loaderData.article.excerpt },
-    { property: "og:type", content: "article" },
+    { property: "og:type", content: "article" }, { name: "twitter:card", content: "summary_large_image" },
     { property: "og:url", content: "https://mackdish.store/insights/" + loaderData.article.slug },
   ], links: [{ rel: "canonical", href: "https://mackdish.store/insights/" + loaderData.article.slug }] }) : ({}),
   component: Page,

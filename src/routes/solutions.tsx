@@ -9,7 +9,7 @@ export const Route = createFileRoute("/solutions")({
     { name: "description", content: "Industry-focused digital marketing, advertising, website, software and automation solutions." },
     { property: "og:title", content: "Business Growth Solutions Kenya, Mackdish Solutions" },
     { property: "og:description", content: "Industry-focused digital marketing, advertising, website, software and automation solutions." },
-    { property: "og:type", content: "website" },
+    { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
     { property: "og:url", content: "https://mackdish.store/solutions" },
   ], links: [{ rel: "canonical", href: "https://mackdish.store/solutions" }] }),
   component: Page,

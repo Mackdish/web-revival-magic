@@ -1,10 +1,6 @@
-import { createClient } from "@supabase/supabase-js";
+import { supabase } from "@/integrations/supabase/client";
 
-const DEFAULT_SUPABASE_URL = "https://heixdwwxiqvuhptxpafz.supabase.co";
-const url = (import.meta.env["VITE_SUPABASE_URL"] as string | undefined) ?? DEFAULT_SUPABASE_URL;
-const key = import.meta.env["VITE_SUPABASE_PUBLISHABLE_KEY"] as string | undefined;
-
-export const supabase = url && key ? createClient(url, key) : null;
+export { supabase };
 
 export async function loadCrmFromSupabase() {
   if (!supabase) return null;

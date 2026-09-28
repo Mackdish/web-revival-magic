@@ -9,7 +9,7 @@ export const Route = createFileRoute("/case-studies")({
     { name: "description", content: "Selected Mackdish work across websites, advertising technology, e-commerce and business software." },
     { property: "og:title", content: "Selected Work, Mackdish Solutions" },
     { property: "og:description", content: "Explore websites and digital platforms built by Mackdish Solutions." },
-    { property: "og:type", content: "website" },
+    { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
     { property: "og:url", content: "https://mackdish.store/case-studies" },
   ], links: [{ rel: "canonical", href: "https://mackdish.store/case-studies" }] }),
   component: Page,

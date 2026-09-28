@@ -20,7 +20,7 @@ export const Route = createFileRoute("/contact")({
     { name: "description", content: "Talk to Mackdish Solutions about digital marketing, TradeMall advertising, websites, software and automation in Kenya." },
     { property: "og:title", content: "Contact Mackdish Solutions, Kenya" },
     { property: "og:description", content: "Start a direct conversation about marketing, advertising, websites, software or automation." },
-    { property: "og:type", content: "website" },
+    { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
     { property: "og:url", content: "https://mackdish.store/contact" },
   ], links: [{ rel: "canonical", href: "https://mackdish.store/contact" }] }),
   component: Page,

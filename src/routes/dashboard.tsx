@@ -225,7 +225,7 @@ function AdminPage() {
     const verifyAdmin = async () => {
       if (!supabase) {
         if (!cancelled) {
-          setCrmError("Supabase is not configured. The admin portal requires Supabase authentication and cannot use local browser storage.");
+          setCrmError("The workspace connection is unavailable.");
           setAuthChecking(false);
         }
         return;
@@ -239,7 +239,7 @@ function AdminPage() {
         }
 
         const role = await getCrmRole(user.id);
-        if (role !== "admin") {
+        if (!role) {
           await signOut();
           await navigate({ to: "/login", replace: true });
           return;
@@ -969,5 +969,6 @@ function AccountsView({ companies, contacts, deals, projects, invoices, payments
 }
 
 export const Route = createFileRoute("/dashboard")({
+  head: () => ({ meta: [{ title: "Workspace | Mackdish Solutions" }, { name: "description", content: "Private Mackdish sales, clients and projects workspace." }, { property: "og:title", content: "Workspace | Mackdish Solutions" }, { property: "og:description", content: "Private Mackdish sales, clients and projects workspace." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary" }] }),
   component: AdminPage,
 });

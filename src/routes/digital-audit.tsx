@@ -9,7 +9,7 @@ export const Route = createFileRoute("/digital-audit")({
     { name: "description", content: "Request a short review of your website, social presence and customer journey from Mackdish Solutions. Delivered within 2 working days." },
     { property: "og:title", content: "Free Digital Audit, Mackdish Solutions" },
     { property: "og:description", content: "Send your website or social link and get a short customer-journey review within 2 working days." },
-    { property: "og:type", content: "website" },
+    { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
     { property: "og:url", content: "https://mackdish.store/digital-audit" },
   ], links: [{ rel: "canonical", href: "https://mackdish.store/digital-audit" }] }),
   component: Page,

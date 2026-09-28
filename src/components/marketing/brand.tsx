@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
+import logoAsset from "@/assets/mackdish-logo.svg.asset.json";
 
 export function Brand() {
   return (
@@ -9,7 +10,7 @@ export function Brand() {
       aria-label="Mackdish Solutions home"
     >
       <img
-        src="/mackdish-logo.svg"
+        src={logoAsset.url}
         alt="Mackdish Solutions"
         className="h-11 w-auto object-contain"
       />

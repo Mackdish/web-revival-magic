@@ -21,9 +21,6 @@ export function SiteFooter() {
         </div>
         <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-sm">
           <a href="https://wa.me/254705186502" target="_blank" rel="noreferrer" className="font-semibold text-brand-light hover:underline">WhatsApp</a>
-          <a href="https://facebook.com/mackdishsolutions" target="_blank" rel="noreferrer" className="text-ink-foreground/80 hover:text-brand-light">Facebook</a>
-          <a href="https://www.linkedin.com/company/mackdish-solutions" target="_blank" rel="noreferrer" className="text-ink-foreground/80 hover:text-brand-light">LinkedIn</a>
-          <a href="https://instagram.com/mackdishsolutions" target="_blank" rel="noreferrer" className="text-ink-foreground/80 hover:text-brand-light">Instagram</a>
         </div>
         <Link to="/contact" className="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-brand-light">Start a conversation <ArrowRight className="size-4"/></Link>
       </div>

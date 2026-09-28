@@ -14,7 +14,7 @@ function SignupPage(){
   if(password.length<8){setError("Use at least 8 characters for your password.");return}
   if(password!==confirm){setError("Passwords do not match.");return}
   setSubmitting(true);
-  try{ const data=await signUpWithPassword(email.trim(),password); if(data.session){await navigate({to:"/dashboard",replace:true});return} setSuccess("Account created. Check your email to confirm your account, then sign in."); }
+  try{ const data=await signUpWithPassword(email.trim(),password); if(data.session){await navigate({to:"/account",replace:true});return} setSuccess("Account created. Check your email to confirm your account, then sign in."); }
   catch(e){setError(e instanceof Error?e.message:"Unable to create your account.");} finally{setSubmitting(false)}
  };
  return <div className="min-h-screen bg-slate-950 text-slate-100"><div className="mx-auto flex min-h-screen max-w-2xl items-center justify-center px-5 py-10"><div className="w-full max-w-md">
@@ -27,7 +27,7 @@ function SignupPage(){
    {success&&<div className="flex gap-3 rounded-xl border border-emerald-900/60 bg-emerald-950/30 p-3 text-sm text-emerald-300"><CheckCircle2 className="mt-0.5 size-4 shrink-0"/><span>{success} <Link to="/login" className="font-semibold underline">Sign in</Link></span></div>}
    <button disabled={submitting} className="flex h-12 w-full items-center justify-center gap-2 rounded-xl bg-white font-semibold text-slate-950 hover:bg-slate-200 disabled:opacity-60">{submitting?"Creating account...":"Create account"}<ArrowRight className="size-4"/></button>
    <p className="text-center text-sm text-slate-500">Already have an account? <Link to="/login" className="font-semibold text-white hover:underline">Sign in</Link></p>
-   <p className="text-center text-xs leading-5 text-slate-600">Creating an account does not grant CRM access. Workspace access is assigned separately.</p>
+   <p className="text-center text-xs leading-5 text-slate-600">Create an account to manage your profile and send inquiries to our team.</p>
   </form><style>{".auth-input{height:3rem;width:100%;background:transparent;outline:none;font-size:.875rem;color:white}.auth-input::placeholder{color:#475569}"}</style>
  </div></div></div>
 }

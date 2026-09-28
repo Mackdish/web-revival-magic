@@ -14,6 +14,7 @@ export function SiteHeader() {
           {navigation.map((item) => <Link key={item.to} to={item.to} activeProps={{ className: "text-primary" }} className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">{item.label}</Link>)}
         </nav>
         <div className="flex items-center gap-2">
+          <Button asChild variant="outline" className="hidden h-10 sm:inline-flex"><Link to="/account">My account</Link></Button>
           <Button asChild className="hidden h-10 sm:inline-flex"><Link to="/digital-audit">Get a Free Digital Audit</Link></Button>
           <Sheet>
             <SheetTrigger asChild><Button variant="outline" size="icon" className="xl:hidden" aria-label="Open navigation"><Menu /></Button></SheetTrigger>

@@ -40,7 +40,7 @@ export { supabase };
 
 export async function signUpWithPassword(email: string, password: string) {
   if (!supabase) throw new Error("Supabase authentication is not configured.");
-  const { data, error } = await supabase.auth.signUp({ email, password });
+  const { data, error } = await supabase.auth.signUp({ email, password, options: { emailRedirectTo: `${window.location.origin}/account` } });
   if (error) throw error;
   return data;
 }

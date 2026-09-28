@@ -326,7 +326,7 @@ function AdminPage() {
         if (!saved) return;
         const lead: Lead = {
           id: saved.id, name: saved.name, company: saved.company ?? "", phone: saved.phone ?? "",
-          email: saved.email ?? "", source: saved.source ?? "Other", status: saved.status,
+          email: saved.email ?? "", source: saved.source ?? "Other", status: (saved.status ?? "New") as LeadStatus,
           value: Number(saved.value ?? 0), owner: saved.owner_id ?? "Mackdish",
           createdAt: saved.created_at?.slice(0, 10) ?? todayIso(), lastActivity: "Just now", nextFollowUp: todayIso(),
         };
@@ -671,7 +671,7 @@ function CreateRecordModal({ module, companies, contacts, deals, leads, invoices
       }
 
       if (!table) throw new Error("This module does not support creating records.");
-      const { data, error: insertError } = await supabase.from(table).insert(payload).select().single();
+      const { data, error: insertError } = await supabase.from(table as "crm_companies").insert(payload as { name: string }).select().single();
       if (insertError) throw insertError;
 
       if (module === "workflows" && data) {

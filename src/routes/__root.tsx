@@ -119,7 +119,7 @@ function RootShell({ children }: { children: ReactNode }) {
               "@id": "https://mackdish.store/#organization",
               "name": "Mackdish Solutions",
               "url": "https://mackdish.store",
-              "logo": "https://mackdish.store/mackdish-logo.svg",
+              "logo": logoAsset.url,
               "email": "info@mackdish.store",
               "telephone": "+254705186502",
               "sameAs": [

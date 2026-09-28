@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as AccountRouteImport } from './routes/account'
 import { Route as AdvertisingRouteImport } from './routes/advertising'
 import { Route as AutomationAiRouteImport } from './routes/automation-ai'
 import { Route as BlogManagementRouteImport } from './routes/blog-management'
@@ -40,6 +41,11 @@ const IndexRoute = IndexRouteImport.update({
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AccountRoute = AccountRouteImport.update({
+  id: '/account',
+  path: '/account',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdvertisingRoute = AdvertisingRouteImport.update({
@@ -146,6 +152,7 @@ const InsightsSlugRoute = InsightsSlugRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/account': typeof AccountRoute
   '/advertising': typeof AdvertisingRoute
   '/automation-ai': typeof AutomationAiRoute
   '/blog-management': typeof BlogManagementRoute
@@ -170,6 +177,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/account': typeof AccountRoute
   '/advertising': typeof AdvertisingRoute
   '/automation-ai': typeof AutomationAiRoute
   '/blog-management': typeof BlogManagementRoute
@@ -195,6 +203,7 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/account': typeof AccountRoute
   '/advertising': typeof AdvertisingRoute
   '/automation-ai': typeof AutomationAiRoute
   '/blog-management': typeof BlogManagementRoute
@@ -221,6 +230,7 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/account'
     | '/advertising'
     | '/automation-ai'
     | '/blog-management'
@@ -245,6 +255,7 @@ export interface FileRouteTypes {
   to:
     | '/'
     | '/about'
+    | '/account'
     | '/advertising'
     | '/automation-ai'
     | '/blog-management'
@@ -269,6 +280,7 @@ export interface FileRouteTypes {
     | '__root__'
     | '/'
     | '/about'
+    | '/account'
     | '/advertising'
     | '/automation-ai'
     | '/blog-management'
@@ -294,6 +306,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  AccountRoute: typeof AccountRoute
   AdvertisingRoute: typeof AdvertisingRoute
   AutomationAiRoute: typeof AutomationAiRoute
   BlogManagementRoute: typeof BlogManagementRoute
@@ -329,6 +342,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/account': {
+      id: '/account'
+      path: '/account'
+      fullPath: '/account'
+      preLoaderRoute: typeof AccountRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/advertising': {
@@ -489,6 +509,7 @@ const InsightsRouteWithChildren = InsightsRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  AccountRoute: AccountRoute,
   AdvertisingRoute: AdvertisingRoute,
   AutomationAiRoute: AutomationAiRoute,
   BlogManagementRoute: BlogManagementRoute,

@@ -13,14 +13,14 @@ function LoginPage() {
     let cancelled=false;
     const check=async()=>{
       if(!supabase){ if(!cancelled){setError("Authentication is not configured.");setLoading(false);} return; }
-      try { const user=await getCurrentUser(); if(user && await getCrmRole(user.id)) await navigate({to:"/dashboard",replace:true}); }
+      try { const user=await getCurrentUser(); if(user) await navigate({to:(await getCrmRole(user.id))==="admin"?"/dashboard":"/account",replace:true}); }
       catch(e){ if(!cancelled)setError(e instanceof Error?e.message:"Unable to check your session."); }
       finally { if(!cancelled)setLoading(false); }
     }; void check(); return()=>{cancelled=true};
   },[navigate]);
   const submit=async(e:FormEvent)=>{
     e.preventDefault();setError("");setSubmitting(true);
-    try { const {user}=await signInWithPassword(email.trim(),password); if(!user)throw new Error("Unable to sign in."); const role=await getCrmRole(user.id); if(role!=="admin"){await supabase?.auth.signOut();throw new Error("Your account has not been granted workspace access yet.");} await navigate({to:"/dashboard",replace:true}); }
+    try { const {user}=await signInWithPassword(email.trim(),password); if(!user)throw new Error("Unable to sign in."); const role=await getCrmRole(user.id); await navigate({to: role==="admin"?"/dashboard":"/account",replace:true}); }
     catch(e){setError(e instanceof Error?e.message:"Unable to sign in.");} finally{setSubmitting(false)}
   };
   if(loading)return <div className="flex min-h-screen items-center justify-center bg-slate-950 text-slate-300">Checking session...</div>;

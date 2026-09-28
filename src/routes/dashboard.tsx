@@ -62,7 +62,41 @@ type CRMActivity = {
   createdAt: string;
 };
 
-type View = "overview" | "leads" | "pipeline" | "tasks" | "activity" | "accounts" | "companies" | "contacts" | "deals" | "inbox" | "projects" | "quotes" | "invoices" | "payments" | "campaigns" | "sources" | "automation" | "workflows" | "analytics" | "search";
+type View = "overview" | "inquiries" | "leads" | "pipeline" | "tasks" | "activity" | "accounts" | "companies" | "contacts" | "deals" | "inbox" | "projects" | "quotes" | "invoices" | "payments" | "campaigns" | "sources" | "automation" | "workflows" | "analytics" | "search";
+
+type InquiryRow = { id: string; user_id: string; service: string | null; subject: string; message: string; status: string; created_at: string };
+type ProfileRow = { user_id: string; display_name: string; company: string | null; phone: string | null };
+function InquiriesView() {
+  const [rows, setRows] = useState<InquiryRow[]>([]);
+  const [profiles, setProfiles] = useState<Record<string, ProfileRow>>({});
+  const [loading, setLoading] = useState(true);
+  const load = async () => {
+    const { data } = await supabase!.from("inquiries").select("*").order("created_at", { ascending: false });
+    const list = (data as InquiryRow[]) ?? [];
+    setRows(list);
+    const ids = [...new Set(list.map((r) => r.user_id))];
+    if (ids.length) {
+      const { data: p } = await supabase!.from("profiles").select("user_id,display_name,company,phone").in("user_id", ids);
+      setProfiles(Object.fromEntries(((p as ProfileRow[]) ?? []).map((x) => [x.user_id, x])));
+    }
+    setLoading(false);
+  };
+  useEffect(() => { void load(); }, []);
+  const setStatus = async (id: string, status: string) => {
+    setRows((r) => r.map((x) => (x.id === id ? { ...x, status } : x)));
+    await supabase!.from("inquiries").update({ status }).eq("id", id);
+  };
+  if (loading) return <p className="text-sm text-slate-400">Loading inquiries...</p>;
+  if (!rows.length) return <p className="text-sm text-slate-400">No customer inquiries yet.</p>;
+  return <div className="space-y-3">{rows.map((r) => { const p = profiles[r.user_id]; return (
+    <div key={r.id} className="border border-slate-800 bg-slate-900 p-5">
+      <div className="flex flex-wrap items-start justify-between gap-3">
+        <div><b>{r.subject}</b><p className="mt-1 text-xs text-slate-400">{p?.display_name || "Unnamed customer"}{p?.company ? ` · ${p.company}` : ""}{p?.phone ? ` · ${p.phone}` : ""} · {r.service} · {new Date(r.created_at).toLocaleString()}</p></div>
+        <select value={r.status} onChange={(e) => void setStatus(r.id, e.target.value)} className="border border-slate-700 bg-slate-950 px-2 py-1 text-sm"><option value="new">New</option><option value="in_progress">In progress</option><option value="resolved">Resolved</option></select>
+      </div>
+      <p className="mt-3 whitespace-pre-wrap text-sm text-slate-300">{r.message}</p>
+    </div>); })}</div>;
+}
 
 const STORAGE = {
   leads: "mackdish_crm_leads",
@@ -399,6 +433,7 @@ function AdminPage() {
 
   const nav = [
     { id: "overview" as View, label: "Overview", icon: LayoutDashboard },
+    { id: "inquiries" as View, label: "Customer Inquiries", icon: Megaphone },
     { id: "leads" as View, label: "Leads", icon: Users },
     { id: "pipeline" as View, label: "Pipeline", icon: Target },
     { id: "tasks" as View, label: "Tasks & Follow-ups", icon: CheckCircle2 },
@@ -512,6 +547,7 @@ function AdminPage() {
             {view === "workflows" && <WorkflowsView workflows={workflows} setWorkflows={setWorkflows} />}
             {view === "analytics" && <AnalyticsView leads={leads} deals={deals} invoices={invoices} payments={payments} campaigns={campaigns} tasks={tasks} activities={activities} />}
             {view === "search" && <GlobalSearchView leads={leads} companies={companies} contacts={contacts} deals={deals} projects={projects} quotes={quotes} invoices={invoices} />}
+            {view === "inquiries" && <InquiriesView />}
           </div>
         </main>
       </div>

@@ -9,6 +9,7 @@
     "build:dev": "vite build --mode development",
     "preview": "vite preview",
     "deploy": "bun run build && npx wrangler deploy",
+    "deploy": "bun run build && npx wrangler deploy",
     "lint": "eslint .",
     "format": "prettier --write ."
   },

@@ -1,6 +1,6 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "mackdish-solutions",
+  "name": "oscar",
   "main": "./.output/server/index.mjs",
   "compatibility_date": "2026-09-26",
   "compatibility_flags": ["nodejs_compat"],

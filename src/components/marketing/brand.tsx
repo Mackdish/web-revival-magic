@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowUpRight } from "lucide-react";
-import logoAsset from "@/assets/mackdish-logo.svg.asset.json";
+const logoAsset = { url: "/logo.svg" };
 
 export function Brand() {
   return (

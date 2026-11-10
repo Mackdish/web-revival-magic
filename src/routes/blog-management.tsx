@@ -21,6 +21,14 @@ const initialArticles: ManagedArticle[] = defaultArticles.map((article) => ({
 }));
 
 export const Route = createFileRoute("/blog-management")({
+  head: () => ({ meta: [
+    { title: "Blog management | Mackdish Insights" },
+    { name: "description", content: "Manage Mackdish insight articles saved in this browser." },
+    { property: "og:title", content: "Blog management | Mackdish Insights" },
+    { property: "og:description", content: "Create and edit locally saved Mackdish insight articles." },
+    { property: "og:type", content: "website" },
+    { name: "twitter:card", content: "summary" },
+  ] }),
   component: BlogManagementPage,
 });
 

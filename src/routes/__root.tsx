@@ -86,7 +86,6 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: "Digital marketing, advertising, software and automation for businesses in Kenya." },
       { name: "author", content: "Mackdish Solutions" },
       { property: "og:site_name", content: "Mackdish Solutions" },
-      { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       
     ],

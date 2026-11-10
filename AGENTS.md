@@ -13,3 +13,5 @@
 - Use the generated Lovable Cloud client for CRM authentication and reads/writes, never the archived project URL; this keeps all customer data in the new project.
 - Restrict CRM rows with membership-based database policies, and grant membership only after a verified identity import; public signup alone must never expose customer records. The original dashboard is admin-only, so keep that route admin-only.
 - Store workspace display information in `public.profiles` separately from admin roles in `public.crm_members`; this prevents editable profile fields from granting access.
+- Keep Open Graph types in leaf route heads, not the root; article previews must not inherit a website type.
+- Treat audit form preparation and external WhatsApp sending as separate steps; a prepared message does not prove Mackdish received a request.

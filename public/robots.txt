@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://mackdish.store/sitemap.xml
+Sitemap: https://web-revival-magic.lovable.app/sitemap.xml

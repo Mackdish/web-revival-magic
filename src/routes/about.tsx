@@ -11,6 +11,7 @@ export const Route = createFileRoute("/about")({
     { property: "og:title", content: "About Mackdish Solutions" },
     { property: "og:description", content: "Meet the founder and the thinking behind Mackdish Solutions." },
     { property: "og:type", content: "profile" },
+    { name: "twitter:card", content: "summary_large_image" },
     { property: "og:url", content: "https://mackdish.store/about" },
   ], links: [{ rel: "canonical", href: "https://mackdish.store/about" }] }),
   component: Page,

@@ -52,15 +52,20 @@ export function ContactForm({ context }: { context?: string | undefined }) {
 }
 
 export function AuditForm() {
-  const [state, setState] = useState<"idle" | "loading" | "done">("idle");
+  const [messageUrl, setMessageUrl] = useState<string | null>(null);
 
-  if (state === "done") {
-    return <Success title="Your WhatsApp message is ready." text="Send it to Mackdish and we’ll review the link you shared and prepare the short audit within 2 working days." />;
+  if (messageUrl) {
+    return <div className="flex min-h-80 flex-col items-center justify-center border border-primary/20 bg-primary/5 p-8 text-center">
+      <MessageCircle className="size-12 text-primary" />
+      <h2 className="mt-5 font-display text-2xl font-semibold">Send your request in WhatsApp.</h2>
+      <p className="mt-3 max-w-md text-muted-foreground">Your request has not been submitted here. Send the prepared message in WhatsApp so it reaches Mackdish. We’ll prepare your short audit within 2 working days after receiving it.</p>
+      <Button asChild size="lg" className="mt-6"><a href={messageUrl} target="_blank" rel="noreferrer"><MessageCircle />Open WhatsApp message</a></Button>
+      <Button variant="ghost" className="mt-3" onClick={() => setMessageUrl(null)}>Prepare another request</Button>
+    </div>;
   }
 
   return <form className="grid gap-5" onSubmit={(event) => {
     event.preventDefault();
-    setState("loading");
     const form = event.currentTarget;
     const data = new FormData(form);
     const message = [
@@ -72,13 +77,12 @@ export function AuditForm() {
       "",
       "Please send me the short audit and the first three changes you would make.",
     ].join("\n");
-    openWhatsApp(message);
-    window.setTimeout(() => setState("done"), 350);
+    setMessageUrl(`${WHATSAPP_BASE}?text=${encodeURIComponent(message)}`);
   }}>
     <Field label="Name" name="name" />
     <Field label="Phone / WhatsApp" name="phone" type="tel" />
     <Field label="Website or social link" name="website" type="url" placeholder="https://" />
-    <Button size="lg" className="w-full" disabled={state === "loading"}>{state === "loading" ? <Loader2 className="animate-spin" /> : <MessageCircle />}Request my free audit</Button>
-    <p className="text-xs leading-5 text-muted-foreground">Three fields. No long questionnaire. Your message opens directly in WhatsApp.</p>
+    <Button size="lg" className="w-full"><MessageCircle />Prepare WhatsApp request</Button>
+    <p className="text-xs leading-5 text-muted-foreground">Prepare your message, then open WhatsApp and send it. Your request reaches Mackdish only when you send the message; your audit follows within 2 working days of receipt.</p>
   </form>;
 }

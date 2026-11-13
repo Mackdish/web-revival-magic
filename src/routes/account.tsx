@@ -81,19 +81,19 @@ function AccountPage() {
 
   const logout = async () => { await supabase.auth.signOut(); await navigate({ to: "/login", replace: true }); };
 
-  if (loading) return <div className="flex min-h-screen items-center justify-center bg-background text-muted-foreground">Loading your account...</div>;
+  if (loading) return <div className="workspace-site flex min-h-screen items-center justify-center text-muted-foreground">Loading your account...</div>;
 
-  const inputCls = "h-11 w-full rounded-md border bg-background px-3 text-sm outline-none focus:ring-2 focus:ring-ring";
-  return <div className="min-h-screen bg-background text-foreground">
+  const inputCls = "workspace-input h-11 w-full px-3 text-sm";
+  return <div className="workspace-site min-h-screen text-foreground">
     <header className="border-b"><div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-5">
-      <Link to="/" className="font-display text-lg font-semibold">Mackdish</Link>
-      <button onClick={logout} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground"><LogOut className="size-4" />Sign out</button>
+      <Link to="/" className="font-display text-lg font-semibold uppercase tracking-wide">Mackdish</Link>
+      <button onClick={logout} className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary"><LogOut className="size-4" />Sign out</button>
     </div></header>
     <main className="mx-auto grid max-w-5xl gap-8 px-5 py-10 lg:grid-cols-2">
-      <div className="lg:col-span-2"><h1 className="font-display text-3xl font-semibold">My account</h1><p className="mt-1 text-sm text-muted-foreground">{email}</p>
-        {error && <p className="mt-4 rounded-md border border-destructive/40 bg-destructive/10 p-3 text-sm text-destructive">{error}</p>}</div>
-      <form onSubmit={saveProfile} className="grid content-start gap-4 rounded-lg border p-6">
-        <h2 className="flex items-center gap-2 font-semibold"><UserRound className="size-4" />Your profile</h2>
+      <div className="lg:col-span-2"><p className="font-display text-xs font-bold uppercase tracking-[.2em] text-primary">Private workspace</p><h1 className="mt-2 font-display text-3xl font-bold uppercase">My account</h1><p className="mt-1 text-sm text-muted-foreground">{email}</p>
+        {error && <p className="mt-4 border border-destructive/60 bg-destructive/15 p-3 text-sm text-destructive-foreground">{error}</p>}</div>
+      <form onSubmit={saveProfile} className="workspace-panel grid content-start gap-4 p-6">
+        <h2 className="flex items-center gap-2 font-display font-semibold uppercase"><UserRound className="size-4 text-primary" />Your profile</h2>
         <label className="grid gap-1 text-sm">Full name *<input className={inputCls} value={profile.display_name} onChange={(e) => setProfile({ ...profile, display_name: e.target.value })} maxLength={100} required /></label>
         <label className="grid gap-1 text-sm">Company<input className={inputCls} value={profile.company} onChange={(e) => setProfile({ ...profile, company: e.target.value })} maxLength={120} /></label>
         <label className="grid gap-1 text-sm">Phone / WhatsApp<input className={inputCls} type="tel" value={profile.phone} onChange={(e) => setProfile({ ...profile, phone: e.target.value })} maxLength={40} /></label>

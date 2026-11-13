@@ -15,3 +15,4 @@
 - Store workspace display information in `public.profiles` separately from admin roles in `public.crm_members`; this prevents editable profile fields from granting access.
 - Keep Open Graph types in leaf route heads, not the root; article previews must not inherit a website type.
 - Treat audit form preparation and external WhatsApp sending as separate steps; a prepared message does not prove Mackdish received a request.
+- Scope marketing theme overrides to `.marketing-site` so public-page redesigns do not change private CRM screens.

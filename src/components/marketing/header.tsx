@@ -8,14 +8,14 @@ import { Sheet, SheetClose, SheetContent, SheetHeader, SheetTitle, SheetTrigger 
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 border-b border-border/70 bg-background/90 backdrop-blur-xl">
-      <div className="mx-auto flex h-18 max-w-7xl items-center justify-between px-5 lg:px-8">
+      <div className="mx-auto flex h-22 max-w-7xl items-center justify-between px-5 lg:px-8">
         <Brand />
         <nav className="hidden items-center gap-6 xl:flex" aria-label="Primary navigation">
           {navigation.map((item) => <Link key={item.to} to={item.to} activeProps={{ className: "text-primary" }} className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">{item.label}</Link>)}
         </nav>
         <div className="flex items-center gap-2">
           <Button asChild variant="outline" className="hidden h-10 sm:inline-flex"><Link to="/account">My account</Link></Button>
-          <Button asChild className="hidden h-10 sm:inline-flex"><Link to="/digital-audit">Get a Free Digital Audit</Link></Button>
+          <Button asChild className="cyan-action hidden h-11 font-display text-base font-bold uppercase sm:inline-flex"><Link to="/digital-audit">Get a Free Digital Audit</Link></Button>
           <Sheet>
             <SheetTrigger asChild><Button variant="outline" size="icon" className="xl:hidden" aria-label="Open navigation"><Menu /></Button></SheetTrigger>
             <SheetContent className="w-[min(88vw,24rem)]">

@@ -18,4 +18,38 @@
 @layer base { *{border-color:var(--color-border)} html{scroll-behavior:smooth} body{margin:0;background:var(--color-background);color:var(--color-foreground);font-family:var(--font-sans)} button,a{-webkit-tap-highlight-color:transparent} ::selection{background:color-mix(in oklab,var(--primary) 28%,transparent)} }
 @keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 @utility animate-rise{animation:rise .7s cubic-bezier(.22,.8,.24,1) both}
+.marketing-site {
+  --background:oklch(.145 .04 265); --foreground:oklch(.97 .008 240);
+  --card:oklch(.19 .045 260); --card-foreground:var(--foreground);
+  --popover:oklch(.19 .045 260); --popover-foreground:var(--foreground);
+  --primary:oklch(.78 .135 215); --primary-foreground:oklch(.13 .04 260);
+  --secondary:oklch(.23 .05 260); --secondary-foreground:var(--foreground);
+  --muted:oklch(.19 .04 260); --muted-foreground:oklch(.77 .025 250);
+  --accent:oklch(.25 .055 250); --accent-foreground:var(--primary);
+  --border:oklch(.34 .06 240); --input:var(--border); --ring:var(--primary);
+  --ink:oklch(.115 .03 265); --ink-foreground:var(--foreground);
+  --ink-muted:var(--muted-foreground); --ink-border:var(--border);
+  --brand-light:var(--primary); --hero:oklch(.16 .055 265);
+  --hero-panel:var(--card); --hero-step:var(--secondary); --hero-border:var(--border);
+  --hero-foreground:var(--foreground); --hero-muted:var(--muted-foreground);
+  --font-display:"Rajdhani",sans-serif;
+  --shadow-cyan:0 0 20px color-mix(in oklab,var(--primary) 22%,transparent);
+  background:var(--background); color:var(--foreground);
+}
+.marketing-site .font-display { font-family:var(--font-display); letter-spacing:0; }
+.marketing-site h1,.marketing-site h2 { letter-spacing:0; }
+.marketing-site header { background:var(--ink); border-color:var(--primary); }
+.marketing-site header nav a { text-transform:uppercase; font-family:var(--font-display); font-weight:600; }
+.marketing-site [data-slot="sheet-content"] { background:var(--background); }
+.marketing-site a[data-slot="button"],.marketing-site button { border-radius:0; }
+.home-hero { position:relative; isolation:isolate; overflow:hidden; }
+.home-hero::after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg,var(--hero) 0%,color-mix(in oklab,var(--hero) 93%,transparent) 30%,color-mix(in oklab,var(--hero) 30%,transparent) 65%,transparent 100%); }
+.home-hero-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; z-index:-2; }
+.cyan-action { box-shadow:var(--shadow-cyan); border-radius:0; }
+.service-panel { background:var(--card); border:1px solid var(--border); transition:border-color .2s,transform .2s; }
+.service-panel:hover { border-color:var(--primary); transform:translateY(-4px); }
+@media(max-width:767px) {
+  .home-hero-photo { object-position:65% center; opacity:.38; }
+  .home-hero::after { background:color-mix(in oklab,var(--hero) 68%,transparent); }
+}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}

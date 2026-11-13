@@ -102,6 +102,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&display=swap" },
     ],
   }),
   shellComponent: RootShell,
@@ -180,6 +181,7 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <div className="marketing-site">
       <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-background focus:p-3">Skip to content</a>
       <SiteHeader />
       <main id="main-content" className="pb-16 sm:pb-0"><Outlet /></main>
@@ -189,6 +191,7 @@ function RootComponent() {
           <a href="tel:+254705186502" className="inline-flex h-11 items-center justify-center rounded-md border bg-background px-3 text-sm font-semibold text-foreground">Call 0705 186 502</a>
           <a href="https://wa.me/254705186502?text=Hi%20Mackdish%2C%20I%27d%20like%20to%20discuss%20my%20business." target="_blank" rel="noreferrer" className="inline-flex h-11 items-center justify-center rounded-md bg-primary px-3 text-sm font-semibold text-primary-foreground">WhatsApp us</a>
         </div>
+      </div>
       </div>
     </QueryClientProvider>
   );

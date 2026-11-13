@@ -18,10 +18,11 @@ export function SiteHeader() {
           <Button asChild className="cyan-action hidden h-11 font-display text-base font-bold uppercase sm:inline-flex"><Link to="/digital-audit">Get a Free Digital Audit</Link></Button>
           <Sheet>
             <SheetTrigger asChild><Button variant="outline" size="icon" className="xl:hidden" aria-label="Open navigation"><Menu /></Button></SheetTrigger>
-            <SheetContent className="w-[min(88vw,24rem)]">
+            <SheetContent className="marketing-site w-[min(88vw,24rem)]">
               <SheetHeader><SheetTitle><Brand /></SheetTitle></SheetHeader>
               <nav className="mt-10 grid gap-1" aria-label="Mobile navigation">
                 {navigation.map((item) => <SheetClose asChild key={item.to}><Link to={item.to} className="border-b py-4 text-lg font-semibold">{item.label}</Link></SheetClose>)}
+                 <SheetClose asChild><Link to="/account" className="border-b py-4 text-lg font-semibold">My account</Link></SheetClose>
               </nav>
               <SheetClose asChild><Button asChild size="lg" className="mt-8 w-full"><Link to="/digital-audit">Get a Free Digital Audit</Link></Button></SheetClose>
             </SheetContent>

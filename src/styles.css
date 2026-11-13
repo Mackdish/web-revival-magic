@@ -43,6 +43,27 @@
 .marketing-site header nav a { text-transform:uppercase; font-family:var(--font-display); font-weight:600; }
 .marketing-site [data-slot="sheet-content"] { background:var(--background); }
 .marketing-site a[data-slot="button"],.marketing-site button { border-radius:0; }
+.workspace-site {
+  --background:oklch(.145 .04 265); --foreground:oklch(.97 .008 240);
+  --card:oklch(.19 .045 260); --card-foreground:var(--foreground);
+  --primary:oklch(.78 .135 215); --primary-foreground:oklch(.13 .04 260);
+  --muted:oklch(.19 .04 260); --muted-foreground:oklch(.77 .025 250);
+  --border:oklch(.34 .06 240); --ring:var(--primary);
+  --ink:oklch(.115 .03 265);
+  --font-display:"Rajdhani",sans-serif;
+  --shadow-cyan:0 0 20px color-mix(in oklab,var(--primary) 22%,transparent);
+  background:var(--background); color:var(--foreground);
+}
+.workspace-site .font-display { font-family:var(--font-display); }
+.workspace-site h1,.workspace-site h2 { letter-spacing:0; text-transform:uppercase; font-weight:700; }
+.workspace-site header { background:var(--ink); border-color:var(--primary); }
+.workspace-site .workspace-input { background:var(--background); border:1px solid var(--border); color:var(--foreground); border-radius:0; }
+.workspace-site .workspace-input::placeholder { color:var(--muted-foreground); }
+.workspace-site .workspace-input:focus { border-color:var(--primary); outline:none; box-shadow:0 0 0 2px color-mix(in oklab,var(--primary) 35%,transparent); }
+.workspace-site .workspace-panel { background:var(--card); border:1px solid var(--border); border-radius:0; }
+.workspace-site .workspace-panel:hover { border-color:var(--primary); }
+.workspace-site .workspace-action { background:var(--primary); color:var(--primary-foreground); border-radius:0; box-shadow:var(--shadow-cyan); font-family:var(--font-display); text-transform:uppercase; letter-spacing:.06em; }
+.workspace-site .workspace-action:hover { filter:brightness(1.08); }
 .home-hero { position:relative; isolation:isolate; overflow:hidden; }
 .home-hero::after { content:""; position:absolute; inset:0; z-index:-1; background:linear-gradient(90deg,var(--hero) 0%,color-mix(in oklab,var(--hero) 93%,transparent) 30%,color-mix(in oklab,var(--hero) 30%,transparent) 65%,transparent 100%); }
 .home-hero-photo { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; z-index:-2; }

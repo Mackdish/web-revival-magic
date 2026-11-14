@@ -1,9 +1,10 @@
+import { pageSchema } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CTA, Container, Eyebrow, PageHero, SectionHeading } from "@/components/marketing/layout";
 
-export const Route=createFileRoute("/trademall-ads")({head:()=>({meta:[{title:"TradeMall Ads, Targeted Advertising by Mackdish"},{name:"description",content:"Advertise through TradeMall, the Mackdish-owned digital advertising network, with location, device and schedule targeting."},{property:"og:title",content:"TradeMall Ads, Targeted Advertising by Mackdish"},{property:"og:description",content:"Advertise through TradeMall, the Mackdish-owned digital advertising network, with location, device and schedule targeting."},{property:"og:type",content:"website"},{name:"twitter:card",content:"summary_large_image"},{property:"og:url",content:"https://mackdish.store/trademall-ads"}],links:[{rel:"canonical",href:"https://mackdish.store/trademall-ads"}]}),component:Page});
+export const Route=createFileRoute("/trademall-ads")({head:()=>({meta:[{ title: "TradeMall Advertising Network | Mackdish Solutions" },{ name: "description", content: "Advertise through TradeMall, Mackdish\u2019s digital advertising network, with location, device and schedule targeting and website or WhatsApp destinations." },{ property: "og:title", content: "TradeMall Advertising Network | Mackdish Solutions" },{ property: "og:description", content: "Advertise through TradeMall, Mackdish\u2019s digital advertising network, with location, device and schedule targeting and website or WhatsApp destinations." },{property:"og:type",content:"website"},{name:"twitter:card",content:"summary_large_image"},{property:"og:url",content:"https://mackdish.store/trademall-ads"}],links:[{rel:"canonical",href:"https://mackdish.store/trademall-ads"}], scripts: pageSchema("/trademall-ads", "TradeMall Advertising Network", "Advertise through TradeMall, Mackdish\u2019s digital advertising network, with location, device and schedule targeting and website or WhatsApp destinations.", "Service")}),component:Page});
 
 const placements=["728×90 banner","300×250 display","320×50 mobile","Responsive placements"];
 const targeting=["Country","County","City","Device","Browser / OS","Category","Schedule"];

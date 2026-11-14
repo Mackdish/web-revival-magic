@@ -1,3 +1,4 @@
+import { pageSchema } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { Check } from "lucide-react";
 import { AuditForm } from "@/components/marketing/forms";
@@ -11,7 +12,7 @@ export const Route = createFileRoute("/digital-audit")({
     { property: "og:description", content: "Send your website or social link and get a short customer-journey review within 2 working days." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
     { property: "og:url", content: "https://mackdish.store/digital-audit" },
-  ], links: [{ rel: "canonical", href: "https://mackdish.store/digital-audit" }] }),
+  ], links: [{ rel: "canonical", href: "https://mackdish.store/digital-audit" }], scripts: pageSchema("/digital-audit", "Free Digital Audit, Mackdish Solutions", "Request a short review of your website, social presence and customer journey from Mackdish Solutions. Delivered within 2 working days.", "WebPage") }),
   component: Page,
 });
 

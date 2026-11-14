@@ -1,3 +1,4 @@
+import { pageSchema } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -11,7 +12,7 @@ export const Route = createFileRoute("/case-studies")({
     { property: "og:description", content: "Explore websites and digital platforms built by Mackdish Solutions." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
     { property: "og:url", content: "https://mackdish.store/case-studies" },
-  ], links: [{ rel: "canonical", href: "https://mackdish.store/case-studies" }] }),
+  ], links: [{ rel: "canonical", href: "https://mackdish.store/case-studies" }], scripts: pageSchema("/case-studies", "Selected Work, Mackdish Solutions", "Selected Mackdish work across websites, advertising technology, e-commerce and business software.", "CollectionPage") }),
   component: Page,
 });
 

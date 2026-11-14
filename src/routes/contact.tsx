@@ -1,3 +1,4 @@
+import { pageSchema } from "@/lib/seo";
 import { createFileRoute, useSearch } from "@tanstack/react-router";
 import { Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { ContactForm } from "@/components/marketing/forms";
@@ -22,7 +23,7 @@ export const Route = createFileRoute("/contact")({
     { property: "og:description", content: "Start a direct conversation about marketing, advertising, websites, software or automation." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
     { property: "og:url", content: "https://mackdish.store/contact" },
-  ], links: [{ rel: "canonical", href: "https://mackdish.store/contact" }] }),
+  ], links: [{ rel: "canonical", href: "https://mackdish.store/contact" }], scripts: pageSchema("/contact", "Contact Mackdish Solutions, Kenya", "Talk to Mackdish Solutions about digital marketing, TradeMall advertising, websites, software and automation in Kenya.", "ContactPage") }),
   component: Page,
 });
 

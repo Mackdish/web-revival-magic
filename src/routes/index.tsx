@@ -5,15 +5,16 @@ import { Container, CTA, Eyebrow, SectionHeading } from "@/components/marketing/
 import { growthStages, services, industries } from "@/content/site";
 
 import teamHero from "@/assets/mackdish-team-hero.jpg";
+import { pageSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/")({
   head: () => ({ meta: [
-    { title: "Mackdish Solutions, Digital Marketing, Advertising & Software in Kenya" },
+    { title: "Mackdish Solutions | Digital Marketing & Web Development Kenya" },
     { name: "description", content: "Mackdish Solutions helps Kenyan businesses get found, generate enquiries and build the websites, software and automations behind their growth." },
-    { property: "og:title", content: "Mackdish Solutions, Digital Marketing, Advertising & Software in Kenya" },
+    { property: "og:title", content: "Mackdish Solutions | Digital Marketing & Web Development Kenya" },
     { property: "og:description", content: "Marketing, advertising, websites, software and automation from one Kenyan digital partner." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },{ property: "og:url", content: "https://mackdish.store/" },
-  ], links: [{ rel: "canonical", href: "https://mackdish.store/" }] }),
+  ], links: [{ rel: "canonical", href: "https://mackdish.store/" }], scripts: pageSchema("/", "Mackdish Solutions", "Digital marketing, advertising, websites, software and automation for Kenyan businesses.") }),
   component: Home,
 });
 

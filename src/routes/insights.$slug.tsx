@@ -1,12 +1,13 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { ArrowLeft } from "lucide-react";
 import { Container } from "@/components/marketing/layout";
 import { articles } from "@/content/site";
+import { articleSchema } from "@/lib/seo";
 
 export const Route = createFileRoute("/insights/$slug")({
   loader: ({ params }) => {
     const article = articles.find((item) => item.slug === params.slug);
-    if (!article) throw new Error("Article not found");
+    if (!article) throw notFound();
     return { article };
   },
   head: ({ loaderData }) => loaderData ? ({ meta: [
@@ -16,7 +17,7 @@ export const Route = createFileRoute("/insights/$slug")({
     { property: "og:description", content: loaderData.article.excerpt },
     { property: "og:type", content: "article" }, { name: "twitter:card", content: "summary_large_image" },
     { property: "og:url", content: "https://mackdish.store/insights/" + loaderData.article.slug },
-  ], links: [{ rel: "canonical", href: "https://mackdish.store/insights/" + loaderData.article.slug }] }) : ({}),
+  ], links: [{ rel: "canonical", href: "https://mackdish.store/insights/" + loaderData.article.slug }], scripts: articleSchema(loaderData.article) }) : ({ meta: [{ title: "Unavailable | Mackdish Insights" }, { name: "description", content: "This Mackdish insight is unavailable." }, { property: "og:title", content: "Unavailable | Mackdish Insights" }, { property: "og:description", content: "This Mackdish insight is unavailable." }, { property: "og:type", content: "article" }, { name: "twitter:card", content: "summary" }, { name: "robots", content: "noindex" }] }),
   component: Page,
 });
 

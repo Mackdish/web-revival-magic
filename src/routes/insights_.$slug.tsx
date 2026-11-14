@@ -4,7 +4,7 @@ import { Container } from "@/components/marketing/layout";
 import { articles } from "@/content/site";
 import { articleSchema } from "@/lib/seo";
 
-export const Route = createFileRoute("/insights/$slug")({
+export const Route = createFileRoute("/insights_/$slug")({
   loader: ({ params }) => {
     const article = articles.find((item) => item.slug === params.slug);
     if (!article) throw notFound();

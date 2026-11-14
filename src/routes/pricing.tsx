@@ -1,10 +1,11 @@
+import { pageSchema } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { CTA, Container, PageHero, SectionHeading } from "@/components/marketing/layout";
 
 export const Route = createFileRoute("/pricing")({
-  head: () => ({ meta: [{ title: "Digital Marketing Pricing Kenya, Mackdish Solutions" }, { name: "description", content: "Digital marketing packages from KSh 15,000 per month, with advertising spend separate." }, { property: "og:title", content: "Digital Marketing Pricing Kenya, Mackdish Solutions" }, { property: "og:description", content: "Digital marketing packages from KSh 15,000 per month, with advertising spend separate." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }, { property: "og:url", content: "https://mackdish.store/pricing" }], links: [{ rel: "canonical", href: "https://mackdish.store/pricing" }] }),
+  head: () => ({ meta: [{ title: "Digital Marketing Pricing Kenya, Mackdish Solutions" }, { name: "description", content: "Digital marketing packages from KSh 15,000 per month, with advertising spend separate." }, { property: "og:title", content: "Digital Marketing Pricing Kenya, Mackdish Solutions" }, { property: "og:description", content: "Digital marketing packages from KSh 15,000 per month, with advertising spend separate." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }, { property: "og:url", content: "https://mackdish.store/pricing" }], links: [{ rel: "canonical", href: "https://mackdish.store/pricing" }], scripts: pageSchema("/pricing", "Digital Marketing Pricing Kenya, Mackdish Solutions", "Digital marketing packages from KSh 15,000 per month, with advertising spend separate.", "WebPage") }),
   component: Page,
 });
 

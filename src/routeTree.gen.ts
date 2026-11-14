@@ -31,7 +31,7 @@ import { Route as SolutionsRouteImport } from './routes/solutions'
 import { Route as TrademallAdsRouteImport } from './routes/trademall-ads'
 import { Route as WebDevelopmentRouteImport } from './routes/web-development'
 import { Route as WebSoftwareDevelopmentRouteImport } from './routes/web-software-development'
-import { Route as InsightsSlugRouteImport } from './routes/insights.$slug'
+import { Route as InsightsSlugRouteImport } from './routes/insights_.$slug'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -144,9 +144,9 @@ const WebSoftwareDevelopmentRoute = WebSoftwareDevelopmentRouteImport.update({
   getParentRoute: () => rootRouteImport,
 } as any)
 const InsightsSlugRoute = InsightsSlugRouteImport.update({
-  id: '/$slug',
-  path: '/$slug',
-  getParentRoute: () => InsightsRoute,
+  id: '/insights_/$slug',
+  path: '/insights/$slug',
+  getParentRoute: () => rootRouteImport,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -161,7 +161,7 @@ export interface FileRoutesByFullPath {
   '/dashboard': typeof DashboardRoute
   '/digital-audit': typeof DigitalAuditRoute
   '/digital-marketing': typeof DigitalMarketingRoute
-  '/insights': typeof InsightsRouteWithChildren
+  '/insights': typeof InsightsRoute
   '/login': typeof LoginRoute
   '/pricing': typeof PricingRoute
   '/seo': typeof SeoRoute
@@ -186,7 +186,7 @@ export interface FileRoutesByTo {
   '/dashboard': typeof DashboardRoute
   '/digital-audit': typeof DigitalAuditRoute
   '/digital-marketing': typeof DigitalMarketingRoute
-  '/insights': typeof InsightsRouteWithChildren
+  '/insights': typeof InsightsRoute
   '/login': typeof LoginRoute
   '/pricing': typeof PricingRoute
   '/seo': typeof SeoRoute
@@ -212,7 +212,7 @@ export interface FileRoutesById {
   '/dashboard': typeof DashboardRoute
   '/digital-audit': typeof DigitalAuditRoute
   '/digital-marketing': typeof DigitalMarketingRoute
-  '/insights': typeof InsightsRouteWithChildren
+  '/insights': typeof InsightsRoute
   '/login': typeof LoginRoute
   '/pricing': typeof PricingRoute
   '/seo': typeof SeoRoute
@@ -223,7 +223,7 @@ export interface FileRoutesById {
   '/trademall-ads': typeof TrademallAdsRoute
   '/web-development': typeof WebDevelopmentRoute
   '/web-software-development': typeof WebSoftwareDevelopmentRoute
-  '/insights/$slug': typeof InsightsSlugRoute
+  '/insights_/$slug': typeof InsightsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -300,7 +300,7 @@ export interface FileRouteTypes {
     | '/trademall-ads'
     | '/web-development'
     | '/web-software-development'
-    | '/insights/$slug'
+    | '/insights_/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -315,7 +315,7 @@ export interface RootRouteChildren {
   DashboardRoute: typeof DashboardRoute
   DigitalAuditRoute: typeof DigitalAuditRoute
   DigitalMarketingRoute: typeof DigitalMarketingRoute
-  InsightsRoute: typeof InsightsRouteWithChildren
+  InsightsRoute: typeof InsightsRoute
   LoginRoute: typeof LoginRoute
   PricingRoute: typeof PricingRoute
   SeoRoute: typeof SeoRoute
@@ -326,6 +326,7 @@ export interface RootRouteChildren {
   TrademallAdsRoute: typeof TrademallAdsRoute
   WebDevelopmentRoute: typeof WebDevelopmentRoute
   WebSoftwareDevelopmentRoute: typeof WebSoftwareDevelopmentRoute
+  InsightsSlugRoute: typeof InsightsSlugRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -484,27 +485,15 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WebSoftwareDevelopmentRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/insights/$slug': {
-      id: '/insights/$slug'
-      path: '/$slug'
+    '/insights_/$slug': {
+      id: '/insights_/$slug'
+      path: '/insights/$slug'
       fullPath: '/insights/$slug'
       preLoaderRoute: typeof InsightsSlugRouteImport
-      parentRoute: typeof InsightsRoute
+      parentRoute: typeof rootRouteImport
     }
   }
 }
-
-interface InsightsRouteChildren {
-  InsightsSlugRoute: typeof InsightsSlugRoute
-}
-
-const InsightsRouteChildren: InsightsRouteChildren = {
-  InsightsSlugRoute: InsightsSlugRoute,
-}
-
-const InsightsRouteWithChildren = InsightsRoute._addFileChildren(
-  InsightsRouteChildren,
-)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -518,7 +507,7 @@ const rootRouteChildren: RootRouteChildren = {
   DashboardRoute: DashboardRoute,
   DigitalAuditRoute: DigitalAuditRoute,
   DigitalMarketingRoute: DigitalMarketingRoute,
-  InsightsRoute: InsightsRouteWithChildren,
+  InsightsRoute: InsightsRoute,
   LoginRoute: LoginRoute,
   PricingRoute: PricingRoute,
   SeoRoute: SeoRoute,
@@ -529,6 +518,7 @@ const rootRouteChildren: RootRouteChildren = {
   TrademallAdsRoute: TrademallAdsRoute,
   WebDevelopmentRoute: WebDevelopmentRoute,
   WebSoftwareDevelopmentRoute: WebSoftwareDevelopmentRoute,
+  InsightsSlugRoute: InsightsSlugRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

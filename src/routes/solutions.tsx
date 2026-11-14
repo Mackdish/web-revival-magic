@@ -1,3 +1,4 @@
+import { pageSchema } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight, Building2, ShoppingBag, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -11,7 +12,7 @@ export const Route = createFileRoute("/solutions")({
     { property: "og:description", content: "Industry-focused digital marketing, advertising, website, software and automation solutions." },
     { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" },
     { property: "og:url", content: "https://mackdish.store/solutions" },
-  ], links: [{ rel: "canonical", href: "https://mackdish.store/solutions" }] }),
+  ], links: [{ rel: "canonical", href: "https://mackdish.store/solutions" }], scripts: pageSchema("/solutions", "Business Growth Solutions Kenya, Mackdish Solutions", "Industry-focused digital marketing, advertising, website, software and automation solutions.", "WebPage") }),
   component: Page,
 });
 function Page() {

@@ -16,3 +16,6 @@
 - Keep Open Graph types in leaf route heads, not the root; article previews must not inherit a website type.
 - Treat audit form preparation and external WhatsApp sending as separate steps; a prepared message does not prove Mackdish received a request.
 - Scope marketing theme overrides to `.marketing-site` so public-page redesigns do not change private CRM screens.
+- Keep SEO schema helpers browser-safe and use the primary canonical origin for page identities; SSR and client navigation must emit consistent metadata.
+- Maintain the static sitemap from all public route paths and built-in article slugs, without fabricated modification dates; this preserves the current deployment's static crawler-file support.
+- Keep insight detail routes un-nested from the Insights listing via the trailing-underscore route convention; articles must render their own body and a single self-canonical rather than inherit the listing page.

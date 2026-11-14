@@ -1,3 +1,4 @@
+import { pageSchema } from "@/lib/seo";
 import { createFileRoute } from "@tanstack/react-router";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
@@ -10,10 +11,10 @@ export const Route = createFileRoute("/about")({
     { name: "description", content: "Meet Mackdish Solutions and founder Macknon Vulimu, building marketing, websites, software and automation for businesses in Kenya." },
     { property: "og:title", content: "About Mackdish Solutions" },
     { property: "og:description", content: "Meet the founder and the thinking behind Mackdish Solutions." },
-    { property: "og:type", content: "profile" },
+    { property: "og:type", content: "website" },
     { name: "twitter:card", content: "summary_large_image" },
     { property: "og:url", content: "https://mackdish.store/about" },
-  ], links: [{ rel: "canonical", href: "https://mackdish.store/about" }] }),
+  ], links: [{ rel: "canonical", href: "https://mackdish.store/about" }], scripts: pageSchema("/about", "About Mackdish Solutions, Digital Growth & Technology Partner", "Meet Mackdish Solutions and founder Macknon Vulimu, building marketing, websites, software and automation for businesses in Kenya.", "AboutPage") }),
   component: Page,
 });
 

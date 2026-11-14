@@ -1,3 +1,4 @@
+import { pageSchema } from "@/lib/seo";
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { ArrowRight } from "lucide-react";
 import { Container, PageHero, SectionHeading } from "@/components/marketing/layout";
@@ -6,7 +7,7 @@ import { articles } from "@/content/site";
 export const Route = createFileRoute("/insights")({
   head: () => ({ meta: [
     { title: "Insights, Digital Marketing, SEO, Advertising & Technology | Mackdish" }, { name: "description", content: "Practical insights for Kenyan businesses on digital marketing, SEO, advertising, TradeMall and business technology." }, { property: "og:title", content: "Insights, Digital Marketing, SEO, Advertising & Technology | Mackdish" }, { property: "og:description", content: "Practical insights for Kenyan businesses on digital marketing, SEO, advertising, TradeMall and business technology." }, { property: "og:type", content: "website" }, { name: "twitter:card", content: "summary_large_image" }, { property: "og:url", content: "https://mackdish.store/insights" },
-  ], links: [{ rel: "canonical", href: "https://mackdish.store/insights" }] }),
+  ], links: [{ rel: "canonical", href: "https://mackdish.store/insights" }], scripts: pageSchema("/insights", "Insights, Digital Marketing, SEO, Advertising & Technology | Mackdish", "Practical insights for Kenyan businesses on digital marketing, SEO, advertising, TradeMall and business technology.", "CollectionPage") }),
   component: Page,
 });
 

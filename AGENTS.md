@@ -19,3 +19,5 @@
 - Keep SEO schema helpers browser-safe and use the primary canonical origin for page identities; SSR and client navigation must emit consistent metadata.
 - Maintain the static sitemap from all public route paths and built-in article slugs, without fabricated modification dates; this preserves the current deployment's static crawler-file support.
 - Keep insight detail routes un-nested from the Insights listing via the trailing-underscore route convention; articles must render their own body and a single self-canonical rather than inherit the listing page.
+- Keep scroll reveals in the shared marketing main wrapper as client-only progressive enhancement; preserve initial content visibility and disable reveals for reduced motion so public animations never affect CRM workflows.
+- Exclude Bun test modules from the browser application's TypeScript program and run them with Bun separately; Bun's global fetch extensions otherwise conflict with generated Cloud clients.

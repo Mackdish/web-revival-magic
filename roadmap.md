@@ -10,3 +10,7 @@
 # Reference appearance redesign
 - [x] Restyle the public website to match the Level UP reference while preserving Mackdish content and account access.
 - [x] Verify desktop, mobile, navigation, and page rendering.
+
+# Scroll animations
+- [ ] Add subtle public-page reveals and staggered groups with reduced-motion support.
+- [ ] Verify scrolling, page navigation, and mobile display.

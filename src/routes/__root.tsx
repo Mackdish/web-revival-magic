@@ -12,6 +12,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 import { SiteHeader } from "@/components/marketing/header";
 import { SiteFooter } from "@/components/marketing/footer";
+import { ScrollAnimations } from "@/components/marketing/scroll-animations";
 const logoAsset = { url: "/logo.svg" };
 
 import appCss from "../styles.css?url";
@@ -156,7 +157,7 @@ function RootComponent() {
       <div className="marketing-site">
       <a href="#main-content" className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-50 focus:bg-background focus:p-3">Skip to content</a>
       <SiteHeader />
-      <main id="main-content" className="pb-16 sm:pb-0"><Outlet /></main>
+      <ScrollAnimations><Outlet /></ScrollAnimations>
       <SiteFooter />
       <div className="fixed inset-x-0 bottom-0 z-50 border-t border-border bg-background/95 p-2 shadow-lg backdrop-blur sm:hidden">
         <div className="mx-auto grid max-w-lg grid-cols-2 gap-2">

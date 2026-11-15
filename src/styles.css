@@ -70,6 +70,14 @@
 .cyan-action { box-shadow:var(--shadow-cyan); border-radius:0; }
 .service-panel { background:var(--card); border:1px solid var(--border); transition:border-color .2s,transform .2s; }
 .service-panel:hover { border-color:var(--primary); transform:translateY(-4px); }
+@keyframes scroll-reveal { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } }
+@media (prefers-reduced-motion:no-preference) {
+  .marketing-site [data-scroll-reveal="pending"] { opacity:0; transform:translateY(24px); }
+  .marketing-site [data-scroll-reveal="visible"] { animation:scroll-reveal .65s cubic-bezier(.22,.8,.24,1) backwards; }
+  .marketing-site [data-scroll-delay="1"] { animation-delay:70ms; }
+  .marketing-site [data-scroll-delay="2"] { animation-delay:140ms; }
+  .marketing-site [data-scroll-delay="3"] { animation-delay:210ms; }
+}
 @media(max-width:767px) {
   .home-hero-photo { object-position:65% center; opacity:.38; }
   .home-hero::after { background:color-mix(in oklab,var(--hero) 68%,transparent); }

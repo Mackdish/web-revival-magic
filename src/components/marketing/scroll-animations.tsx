@@ -30,7 +30,7 @@ export function ScrollAnimations({ children }: { children: ReactNode }) {
       observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
           if (!entry.isIntersecting || !(entry.target instanceof HTMLElement)) return;
-          entry.target.dataset.scrollReveal = "visible";
+          entry.target.dataset["scrollReveal"] = "visible";
           observer?.unobserve(entry.target);
         });
       }, { threshold: 0, rootMargin: "0px 0px -48px 0px" });
@@ -45,8 +45,8 @@ export function ScrollAnimations({ children }: { children: ReactNode }) {
         );
         items.forEach((item, index) => {
           if (!(item instanceof HTMLElement) || item.getBoundingClientRect().top < window.innerHeight) return;
-          item.dataset.scrollReveal = "pending";
-          item.dataset.scrollDelay = String(index % 4);
+          item.dataset["scrollReveal"] = "pending";
+          item.dataset["scrollDelay"] = String(index % 4);
           targets.push(item);
           observer?.observe(item);
         });

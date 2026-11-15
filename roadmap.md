@@ -12,5 +12,5 @@
 - [x] Verify desktop, mobile, navigation, and page rendering.
 
 # Scroll animations
-- [ ] Add subtle public-page reveals and staggered groups with reduced-motion support.
-- [ ] Verify scrolling, page navigation, and mobile display.
+- [x] Add subtle public-page reveals and staggered groups with reduced-motion support.
+- [x] Verify scrolling, page navigation, and mobile display.
